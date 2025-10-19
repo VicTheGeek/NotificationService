@@ -18,9 +18,15 @@ docker exec kafka kafka-topics --create `
   --replication-factor 1
 
 
-  очистка и создание топика
-  docker exec kafka kafka-topics --bootstrap-server localhost:9092 --delete --topic user-events
-  docker exec kafka kafka-topics --bootstrap-server localhost:9092 --create --topic user-events --partitions 1 --replication-factor 1
+ очистка и создание топика
+ docker exec kafka kafka-topics --bootstrap-server localhost:9092 --delete --topic user-events
+ docker exec kafka kafka-topics --bootstrap-server localhost:9092 --create --topic user-events --partitions 1 --replication-factor 1
+
+конфликт версий
+установить
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-21"
+обновить
+$env:PATH = "$env:JAVA_HOME\bin;" + $env:PATH
 
 
 mvn clean install

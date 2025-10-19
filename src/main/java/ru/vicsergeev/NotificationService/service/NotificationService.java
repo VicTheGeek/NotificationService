@@ -1,4 +1,4 @@
-package ru.vicsergeev.NotificationService;
+package ru.vicsergeev.NotificationService.service;
 
 import org.springframework.stereotype.Service;
 import ru.vicsergeev.NotificationService.dto.UserEventDTO;
