@@ -1,0 +1,27 @@
+zookeper
+docker run -d --name zookeeper -p 2181:2181 zookeeper:3.8
+
+kafka
+docker run -d --name kafka -p 9092:9092 `
+  -e KAFKA_BROKER_ID=1 `
+  -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 `
+  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 `
+  -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 `
+  --link zookeeper:zookeeper `
+  confluentinc/cp-kafka:7.6.1
+
+create topic
+docker exec kafka kafka-topics --create `
+  --topic user-events `
+  --bootstrap-server localhost:9092 `
+  --partitions 1 `
+  --replication-factor 1
+
+
+  очистка и создание топика
+  docker exec kafka kafka-topics --bootstrap-server localhost:9092 --delete --topic user-events
+  docker exec kafka kafka-topics --bootstrap-server localhost:9092 --create --topic user-events --partitions 1 --replication-factor 1
+
+
+mvn clean install
+mvn spring-boot:run
