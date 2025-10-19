@@ -25,15 +25,15 @@ public class NotificationController {
         this.mailSender = mailSender;
     }
 
+    // API
     @PostMapping("/send")
     public ResponseEntity<String> sendEmail(@RequestBody EmailDTO emailDTO) {
-        log.info("Sending email to {}", emailDTO.email());
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(emailDTO.email());
         message.setSubject(emailDTO.subject());
         message.setText(emailDTO.text());
         mailSender.send(message);
-        log.info("Email sent to {}", emailDTO.email());
-        return ResponseEntity.ok("Email sent to " + emailDTO.email());
+        System.out.println("письмо отправлено");
+        return ResponseEntity.ok("еmail sent to " + emailDTO.email());
     }
 }

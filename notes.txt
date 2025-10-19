@@ -1,3 +1,8 @@
+https://stackoverflow.com/questions/40860887/spring-rest-controller-with-different-functions/40861264
+https://docs.spring.io/spring-framework/reference/web/webflux/controller/ann-requestmapping.html
+
+
+
 zookeper
 docker run -d --name zookeeper -p 2181:2181 zookeeper:3.8
 
@@ -18,9 +23,9 @@ docker exec kafka kafka-topics --create `
   --replication-factor 1
 
 
- очистка и создание топика
- docker exec kafka kafka-topics --bootstrap-server localhost:9092 --delete --topic user-events
- docker exec kafka kafka-topics --bootstrap-server localhost:9092 --create --topic user-events --partitions 1 --replication-factor 1
+очистка и создание топика
+docker exec kafka kafka-topics --bootstrap-server localhost:9092 --delete --topic user-events
+docker exec kafka kafka-topics --bootstrap-server localhost:9092 --create --topic user-events --partitions 1 --replication-factor 1
 
 конфликт версий
 установить
